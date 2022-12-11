@@ -21,8 +21,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: richard2000wang
-          password: dckr_pat_99x8EWMVeKxYDspL_oO_qWjC0KI
+          username: ${{secrets.DOCKER_HUB_USERNAME }}
+          password: ${{secrets.DOCKER_HUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@v3
         with: 
