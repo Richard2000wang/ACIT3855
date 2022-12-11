@@ -21,4 +21,4 @@ jobs:
         with: 
           push: true
           tags: richard2000wang/app2:app2
-      
+  
