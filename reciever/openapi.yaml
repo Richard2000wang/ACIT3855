@@ -1,0 +1,92 @@
+openapi: 3.0.0
+servers: []
+info:
+  title: Covid Report API
+  description: The API to keep track of COVID statistics
+  version: 1.0.0
+tags:
+- name: users
+  description: Takes account of COVID cases, outcomes, symptoms and recovery speed.
+paths:
+  /users/infected:
+    post:
+      tags:
+      - users
+      description: reports a new covid infection
+      operationId: app.report_covid
+      requestBody:
+        description: Reporting item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfectedInfo'
+      responses:
+        "201":
+          description: Object Added
+        "400":
+          description: invalid input, object invalid
+  /users/recovery:
+    post:
+      tags:
+      - users
+      description: reports the ending of a covid infection that has been reported
+      operationId: app.report_recovery
+      requestBody:
+        description: Reporting item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryInfo'
+      responses:
+        "201":
+          description: Object Updated
+        "400":
+          description: invalid input, object invalid
+components:
+  schemas:
+    InfectedInfo:
+      required:
+      - age
+      - city
+      - date_handwritten  
+      - patient_id
+      - vaccinated_status
+      type: object
+      properties:
+        patient_id:
+          type: integer
+          example: 2391239563
+        date_handwritten:  
+          type: string
+          format: date
+          example: 2021 November 29
+        vaccinated_status:
+          type: integer
+          example: 0
+        city:
+          type: string
+          example: Vancouver
+        age:
+          type: integer
+          example: 28
+    RecoveryInfo:
+      required:
+      - hospital_visit
+      - date_handwritten
+      - patient_id
+      - recovery_status
+      type: object
+      properties:
+        patient_id:
+          type: string
+          example: AC2391239563
+        recovery_status:
+          type: string
+          example: undetermined
+        date_handwritten:  
+          type: string
+          format: date
+          example: 2021 December 21
+        hospital_visit:
+          type: string
+          example: yes

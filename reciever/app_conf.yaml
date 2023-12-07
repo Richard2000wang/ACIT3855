@@ -1,0 +1,9 @@
+version: 1
+eventstore1:
+  url: http://localhost:8090/users/infected
+eventstore2:
+  url: http://localhost:8090/users/recovered
+events:
+hostname: ec2-44-210-173-19.compute-1.amazonaws.com
+port: 9092
+topic: events
