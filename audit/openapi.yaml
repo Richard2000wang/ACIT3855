@@ -1,0 +1,104 @@
+openapi: 3.0.0
+info:
+  title: Audit API
+  description: API to audit COVID-related events
+  version: 1.0.0
+tags:
+  - name: audit
+    description: Audit COVID events
+paths:
+  /event1:
+    get:
+      tags:
+        - audit
+      summary: Get event1 details by index
+      operationId: app.get_event1_by_index
+      parameters:
+        - name: index
+          in: query
+          description: Index of the event in the message queue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned event1
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event1'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+  /event2:
+    get:
+      tags:
+        - audit
+      summary: Get event2 details by index
+      operationId: app.get_event2_by_index
+      parameters:
+        - name: index
+          in: query
+          description: Index of the event in the message queue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned event2
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event2'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+components:
+  schemas:
+    Event1:
+      type: object
+      properties:
+        patient_id:
+          type: integer
+          example: 23
+        age:
+          type: integer
+          example: 28
+        city:
+          type: string
+          example: Vancouver
+        date_handwritten:
+          type: string
+          format: date
+          example: 2021-11-29
+        vaccinated_status:
+          type: integer
+          example: 0
+    Event2:
+      type: object
+      properties:
+        patient_id:
+          type: string
+          example: AC2391239563
+        recovery_status:
+          type: string
+          example: undetermined
+        date_handwritten:
+          type: string
+          format: date
+          example: 2021-12-21
+        hospital_visit:
+          type: string
+          example: yes
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Not Found
