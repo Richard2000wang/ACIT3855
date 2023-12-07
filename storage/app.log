@@ -1,0 +1,16 @@
+2023-11-29 22:41:44,548 - basicLogger - INFO - Received event 'report_covid' request with a trace id of ff098451-ec3d-437b-91ac-3caa82bf0a75
+2023-11-29 22:42:49,877 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 38340a3d-26c6-4c2b-abb7-ad34b8c57a2b
+2023-11-29 22:58:27,903 - basicLogger - INFO - Received event 'report_covid' request with a trace id of c2cf6b4d-732d-41b0-85c1-5039f7945f4f
+2023-11-29 23:04:41,709 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 11ecdd1f-d526-4bf9-9c71-011bcc5dda49
+2023-11-29 23:07:37,064 - basicLogger - INFO - Received event 'report_covid' request with a trace id of dec30111-fb39-41d2-b7ea-b9f6b622854e
+2023-11-29 23:11:54,339 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 47f8f74d-6cd6-4ecd-aafb-5d7b287d17d8
+2023-11-29 23:19:37,547 - basicLogger - INFO - Received event 'report_covid' request with a trace id of f1924933-6435-47c4-8402-676191557ab4
+2023-11-29 23:21:54,280 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 05abc7bd-92d3-413e-8a69-fcc2ce903c42
+2023-11-29 23:22:02,739 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 2e0eb131-b38e-479c-bd06-c661aafdc943
+2023-11-29 23:26:46,091 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 4a55627e-29d5-4a2b-8349-1873db74a819
+2023-11-29 23:29:04,825 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 84be1b98-05f8-4813-b52c-d14ea1b496a1
+2023-11-29 23:33:19,167 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 8fbf93b1-e607-4c23-9a1c-2ad21c60dc70
+2023-11-29 23:40:28,121 - basicLogger - INFO - Received event 'report_covid' request with a trace id of cc705cf0-8264-4cfa-9086-08de6efec9dd
+2023-11-29 23:42:52,780 - basicLogger - INFO - Received event 'report_covid' request with a trace id of a008fa8f-b446-4c6f-955d-2fd8c18ce203
+2023-11-29 23:49:41,192 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 7b9a8bef-b6d5-4280-9791-97673f38ffb9
+2023-11-29 23:52:27,826 - basicLogger - INFO - Received event 'report_covid' request with a trace id of 3cd19ed4-e447-4235-95bf-ba0549e109d3

@@ -1,0 +1,11 @@
+version: 1
+datastore:
+  user: user
+  password: 3855
+  hostname: ec2-44-210-173-19.compute-1.amazonaws.com
+  port: 3306
+  db: acit
+events:
+  hostname: ec2-44-210-173-19.compute-1.amazonaws.com
+  port: 9092
+  topic: events
