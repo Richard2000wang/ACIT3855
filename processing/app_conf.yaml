@@ -1,0 +1,15 @@
+version: 1
+datastore:
+filename: data.json
+scheduler:
+period_sec: 5
+datastore:
+  user: user
+  password: 3855
+  hostname: localhost
+  port: 3306
+  db: acit
+eventstore: null
+scheduler:
+  period_sec: 5 
+url: http://localhost:8090

@@ -1,0 +1,171 @@
+openapi: 3.0.0
+servers: []
+info:
+  title: Covid Report API
+  description: The API to keep track of COVID statistics
+  version: 1.0.0
+tags:
+- name: users
+  description: Takes account of COVID cases, outcomes, symptoms, and recovery speed.
+paths:
+  /users/infected:
+    post:
+      tags:
+      - users
+      description: reports a new covid infection
+      operationId: app.report_covid
+      requestBody:
+        description: Reporting item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InfectedInfo'
+      responses:
+        "201":
+          description: Object Added
+        "400":
+          description: invalid input, object invalid
+
+  /users/recovery:
+    post:
+      tags:
+      - users
+      description: reports the ending of a covid infection that has been reported
+      operationId: app.report_recovery
+      requestBody:
+        description: Reporting item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecoveryInfo'
+      responses:
+        "201":
+          description: Object Updated
+        "400":
+          description: invalid input, object invalid
+
+  /users/report_covid/events:
+    get:
+      tags:
+      - users
+      summary: Get new COVID infection events
+      operationId: app.get_covid_events
+      description: Gets COVID infection events added after a timestamp
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: "2021-11-29T09:12:33.001Z"
+      responses:
+        '200':
+          description: Successfully returned a list of COVID infection events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InfectedInfo'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /users/report_recovery/events:
+    get:
+      tags:
+      - users
+      summary: Get new COVID recovery events
+      operationId: app.get_recovery_events
+      description: Gets COVID recovery events added after a timestamp
+      parameters:
+        - name: timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: "2021-11-29T09:12:33.001Z"
+      responses:
+        '200':
+          description: Successfully returned a list of COVID recovery events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecoveryInfo'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+components:
+  schemas:
+    InfectedInfo:
+      required:
+        - age
+        - city
+        - date_handwritten
+        - patient_id
+        - vaccinated_status
+      type: object
+      properties:
+        patient_id:
+          type: integer
+          example: 2391239563
+        date_created:
+          type: string
+          format: date-time
+          example: "2021-11-29T09:12:33.001Z"
+        date_handwritten:
+          type: string
+          format: date-time
+          example: "2021-12-05T09:00:00.000Z"
+        vaccinated_status:
+          type: integer
+          example: 0
+        city:
+          type: string
+          example: Vancouver
+        age:
+          type: integer
+          example: 28
+    RecoveryInfo:
+      required:
+        - hospital_visit
+        - date_handwritten
+        - patient_id
+        - recovery_status
+      type: object
+      properties:
+        patient_id:
+          type: string
+          example: AC2391239563
+        recovery_status:
+          type: string
+          example: undetermined
+        date_created:
+          type: string
+          format: date-time
+          example: "2021-12-21T09:12:33.001Z"
+        date_handwritten:
+          type: string
+          format: date-time
+          example: "2021-12-05T09:00:00.000Z"
+        hospital_visit:
+          type: string
+          example: yes
+
