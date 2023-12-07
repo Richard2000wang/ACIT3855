@@ -1,7 +1,7 @@
 version: 1
 datastore:
   user: richard
-  password: 3855
+  password: 
   hostname: ec2-44-210-173-19.compute-1.amazonaws.com
   port: 3306
   db: acit
