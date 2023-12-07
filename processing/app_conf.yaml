@@ -5,7 +5,7 @@ scheduler:
 period_sec: 5
 datastore:
   user: user
-  password: 3855
+  password: 
   hostname: localhost
   port: 3306
   db: acit
